@@ -20,4 +20,12 @@ public class Subject
     {
         usedCard += 1;
     }
+
+    public void Check()
+    {
+        if (usedCard < 5)
+        {
+            GameManager.Instance.GameOver();
+        }
+    }
 }

@@ -6,7 +6,7 @@ public class StartButtonScript : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log("Pressed left click.");
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Main");
         }
     }
 }

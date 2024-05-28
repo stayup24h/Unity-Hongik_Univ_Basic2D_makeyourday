@@ -2,23 +2,51 @@ using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
 {
-    public static int turn;
-    Subject sub1 = new Subject("대학수학(1)", "blue");
-    Subject sub2 = new Subject("C 프로그래밍", "green");
-    Subject sub3 = new Subject("기초평면(1)", "yellow");
-    Subject sub4 = new Subject("기초입체(1)", "red");
+    public static int[] turn = new int[24];
+    private int week;
+    public static int tiredness;
+    public static int[] card = new int[5];
+    private Subject[] sub = new Subject[4];
 
+    public void Start()
+    {
+        //과목 객체 arr 선언
+        sub[0] = new Subject("대학수학(1)", "blue");
+        sub[1] = new Subject("C 프로그래밍", "green");
+        sub[2] = new Subject("기초평면(1)", "yellow");
+        sub[3] = new Subject("기초입체(1)", "red");
+
+        newDayStart();
+    }
+    public void newDayStart()
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            card[i] = Random.Range(1, 4);
+        }
+        card[4] = 0;
+
+        for (int i = 0; i < 5; i++) 
+        {
+            Debug.Log(card[i]);
+        }
+    }
 
     public void WeekEnd()
     {
-        sub1.Check();
-        sub2.Check();
-        sub3.Check();
-        sub4.Check();
-        sub1.Reset();
-        sub2.Reset();
-        sub3.Reset();
-        sub4.Reset();
+        for(int i = 0; i < 4; i++)
+        {
+            sub[i].Check();
+            sub[i].Reset();
+        }
+        if ( week == 7)
+        {
+            week = 1;
+        }
+        else
+        {
+            week += 1;
+        }
     }
 
     public void GameOver()

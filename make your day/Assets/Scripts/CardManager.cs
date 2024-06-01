@@ -30,7 +30,7 @@ public class CardManager : MonoBehaviour
 
     IEnumerator cardMove(int _cardNumber)
     {
-        while(true)
+        while(true) // 카드 순서별 위치로 이동
         {
             cardObj[_cardNumber].transform.position = Vector3.MoveTowards(cardObj[_cardNumber].transform.position, destination[_cardNumber], moveSpeed);
             yield return null; 

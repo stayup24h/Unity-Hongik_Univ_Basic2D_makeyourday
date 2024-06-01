@@ -26,7 +26,7 @@ public class CardScript : MonoBehaviour
         img = GetComponent<Image>();
     }
 
-    public void ShowCard(int _cardType)
+    public void ShowCard(int _cardType) // 카드 type에 맞는 이미지로 변경
     {
         cardType = _cardType;
 

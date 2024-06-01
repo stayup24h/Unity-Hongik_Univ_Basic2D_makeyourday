@@ -73,7 +73,7 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
-    public void WeekEnd()
+    public void WeekEnd() // 한주 과제 달성 경과 확인
     {
         for(int i = 0; i < 4; i++)
         {
@@ -91,7 +91,7 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
-    public void GameOver()
+    public void GameOver() // 게임오버
     {
 
     }

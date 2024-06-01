@@ -21,7 +21,10 @@ public class GameManager : Singleton<GameManager>
 
         //변수 초기화
         week = 0;
-
+    }
+    public void GameStart()
+    {
+        CardManager = GameObject.Find("Card Manager");
         newDayStart();
     }
     public void newDayStart()

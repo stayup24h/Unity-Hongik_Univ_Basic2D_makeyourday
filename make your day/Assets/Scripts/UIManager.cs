@@ -10,8 +10,9 @@ public class UIManager : MonoBehaviour
     public GameObject tirednessIndicator;
     public GameObject subjectsIndicator;
 
-    void Start()
+    void Awake()
     {
+        GameManager.Instance.GameStart();
         GameManager.tiredness = 0;
         GameManager.happiness = 0;
 

@@ -36,7 +36,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -426, y: -124}
-  m_SizeDelta: {x: 126, y: 202.5}
+  m_SizeDelta: {x: 150, y: 243}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7962481071868153055
 CanvasRenderer:
@@ -89,4 +89,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   img: {fileID: 3352740195828522780}
+  card0: {fileID: -4492934988411998798, guid: d834da34bcd463941b85a6c9cbed16f8, type: 3}
   card1: {fileID: -627129680395059843, guid: 7b5283701b8c7ed4b96c74d35bbe32d5, type: 3}
+  card2: {fileID: 0}
+  card3: {fileID: 0}
+  card4: {fileID: 0}
+  card5: {fileID: 0}
+  card6: {fileID: 0}
+  card7: {fileID: 0}
+  card8: {fileID: 2881204217820594097, guid: e7fe0f28c90bf594680011eb053913e9, type: 3}
+  card9: {fileID: 0}
+  card10: {fileID: 0}
+  card11: {fileID: 0}
+  card12: {fileID: 0}
+  card13: {fileID: 0}
+  card14: {fileID: 0}
+  card15: {fileID: 0}

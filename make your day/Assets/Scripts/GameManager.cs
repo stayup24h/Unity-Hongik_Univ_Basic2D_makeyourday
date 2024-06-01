@@ -6,9 +6,9 @@ public class GameManager : Singleton<GameManager>
     public static int[] turn = new int[24]; // 0 = 공강, 1 = 기초평면(1), 2 = 대학수학(1), 3 = 기초입체(1), 4 = c-프로그래밍, 5 = 교양
     private int week;
     public static int tiredness;
+    public static int happiness;
     public static int[] card = new int[5];
     private Subject[] sub = new Subject[4];
-    public static int cardIndex; // 카드정보
     public static int happyScore; // 점수
 
     public void Start()
@@ -34,8 +34,8 @@ public class GameManager : Singleton<GameManager>
 
         for (int i = 0; i < 5; i++) //카드 생성
         {
-            cardIndex = card[i];
-            CardManager.GetComponent<CardManager>().showCard(i);
+            Debug.Log(card[i]);
+            CardManager.GetComponent<CardManager>().showCard(i, card[i]);
         }
         for (int i = 0; i < 24; i++)
         {

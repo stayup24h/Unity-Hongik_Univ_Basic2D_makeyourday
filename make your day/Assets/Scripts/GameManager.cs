@@ -8,7 +8,7 @@ public class GameManager : Singleton<GameManager>
     public static int tiredness;
     public static int happiness;
     public static int[] card = new int[5];
-    private Subject[] sub = new Subject[4];
+    public Subject[] sub = new Subject[4];
     public static int happyScore; // 점수
 
     public void Start()

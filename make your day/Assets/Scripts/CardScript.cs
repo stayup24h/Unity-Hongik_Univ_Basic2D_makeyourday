@@ -1,9 +1,17 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class CardScript : MonoBehaviour
+    , IPointerClickHandler
+    , IPointerEnterHandler
+    , IPointerExitHandler
 {
     private int cardType;
+    private int subType; // 0: 대학수학(1), 1: c-프로그래밍, 2: 기초평면(1), 3: 기초입체(1), 4: 여가, 5: 휴식
+    private int tirednessPoint;
+    private int takentime;
     public Image img;
     public Sprite card0;
     public Sprite card1;
@@ -57,6 +65,9 @@ public class CardScript : MonoBehaviour
                 img.sprite = card7;
                 break;
             case 8:
+                subType = 2;
+                tirednessPoint = 5;
+                takentime = 4;
                 img.sprite = card8;
                 break;
             case 9:
@@ -84,6 +95,53 @@ public class CardScript : MonoBehaviour
                 img.sprite = card0;
                 cardType = 0;
                 break;
+        }
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        Debug.Log(cardType.ToString() + " enter");
+        StartCoroutine(Emphasis());
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        Debug.Log(cardType.ToString() + " exit");
+        StopCoroutine(Emphasis());
+        this.transform.localScale = new Vector3(1,1,1);
+
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        Debug.Log(cardType.ToString() + " click");
+        if (subType == 5)
+        {
+
+        }
+        else if(subType == 4)
+        {
+            GameManager.tiredness += tirednessPoint;
+            GameManager.happiness += 1;
+            //turn 함수
+        }
+        else
+        {
+            GameManager.tiredness += tirednessPoint;
+            //turn 함수
+        }
+    }
+
+    private IEnumerator Emphasis()
+    {
+        float increase = 0.04f;
+
+        while (this.GetComponent<Transform>().localScale.x <= 1.2f)
+        {
+            this.transform.localScale = new Vector3(this.transform.localScale.x + increase
+                                                            , this.transform.localScale.y + increase
+                                                            , this.transform.localScale.z);
+            yield return new WaitForSeconds(0.01f); //크기가 바뀌는 속도
         }
     }
 }

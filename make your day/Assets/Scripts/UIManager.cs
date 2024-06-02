@@ -12,9 +12,7 @@ public class UIManager : MonoBehaviour
 
     void Awake()
     {
-        GameManager.Instance.GameStart();
-        GameManager.tiredness = 0;
-        GameManager.happiness = 0;
+        GameManager.Instance.GameStart(); //게임 초기화
 
         happinessText  = happinessIndicator.GetComponent<TextMeshProUGUI>();
         tirednessText = tirednessIndicator.GetComponent<TextMeshProUGUI>();
@@ -25,6 +23,9 @@ public class UIManager : MonoBehaviour
     {
         happinessText.text = "Happiness: " + GameManager.happiness.ToString();
         tirednessText.text = "Tiredness: " + GameManager.tiredness.ToString();
-        subjectsText.text = "math: " + GameManager.Instance.sub[0].usedCard.ToString()+"/5\nC-Programming: "+GameManager.Instance.sub[1].usedCard.ToString()+"/5\nBasic 2D: "+GameManager.Instance.sub[2].ToString()+"/5\nBasic 3D: "+GameManager.Instance.sub[3].ToString()+"/5";
+        subjectsText.text = "math: " + GameManager.Instance.sub[0].usedCard.ToString()
+        +"/5\nC-Programming: "+GameManager.Instance.sub[1].usedCard.ToString()
+        +"/5\nBasic 2D: "+GameManager.Instance.sub[2].usedCard.ToString()
+        +"/5\nBasic 3D: "+GameManager.Instance.sub[3].usedCard.ToString()+"/5";
     }
 }

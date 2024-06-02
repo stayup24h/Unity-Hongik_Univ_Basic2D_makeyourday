@@ -3,7 +3,7 @@ using UnityEngine;
 public class GameManager : Singleton<GameManager>
 {
     public GameObject CardManager;
-    public static int[] turn = new int[24]; // 0 = 공강, 1 = 기초평면(1), 2 = 대학수학(1), 3 = 기초입체(1), 4 = c-프로그래밍, 5 = 교양
+    public static int[] turn = new int[24]; //일정 관리 arr || 0 = 공강, 1 = 기초평면(1), 2 = 대학수학(1), 3 = 기초입체(1), 4 = c-프로그래밍, 5 = 교양
     private int week;
     public static int tiredness;
     public static int happiness;
@@ -19,12 +19,19 @@ public class GameManager : Singleton<GameManager>
         sub[2] = new Subject("기초평면(1)", "yellow");
         sub[3] = new Subject("기초입체(1)", "red");
 
+        for(int i = 0; i < 4; i++)
+        {
+            sub[i].Reset();
+        }
         //변수 초기화
         week = 0;
     }
-    public void GameStart()
+    public void GameStart() //게임 초기화 함수
     {
         CardManager = GameObject.Find("Card Manager");
+        tiredness = 0;
+        happiness = 0;
+        
         newDayStart();
     }
     public void newDayStart()

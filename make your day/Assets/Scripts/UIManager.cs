@@ -5,10 +5,16 @@ public class UIManager : MonoBehaviour
 {
     TextMeshProUGUI happinessText;
     TextMeshProUGUI tirednessText;
-    TextMeshProUGUI subjectsText;
+    TextMeshProUGUI mathText;
+    TextMeshProUGUI programingText;
+    TextMeshProUGUI b2dText;
+    TextMeshProUGUI b3dText;
     public GameObject happinessIndicator;
     public GameObject tirednessIndicator;
-    public GameObject subjectsIndicator;
+    public GameObject mathIndicator;
+    public GameObject programingIndicator;
+    public GameObject b2dIndicator;
+    public GameObject b3dIndicator;
 
     void Awake()
     {
@@ -16,16 +22,19 @@ public class UIManager : MonoBehaviour
 
         happinessText  = happinessIndicator.GetComponent<TextMeshProUGUI>();
         tirednessText = tirednessIndicator.GetComponent<TextMeshProUGUI>();
-        subjectsText = subjectsIndicator.GetComponent<TextMeshProUGUI>();
+        mathText = mathIndicator.GetComponent<TextMeshProUGUI>();
+        programingText = programingIndicator.GetComponent<TextMeshProUGUI>();
+        b2dText = b2dIndicator.GetComponent<TextMeshProUGUI>();
+        b3dText = b3dIndicator.GetComponent<TextMeshProUGUI>();
     }
 
     void Update() // UI update
     {
-        happinessText.text = "Happiness: " + GameManager.happiness.ToString();
-        tirednessText.text = "Tiredness: " + GameManager.tiredness.ToString();
-        subjectsText.text = "math: " + GameManager.Instance.sub[0].usedCard.ToString()
-        +"/5\nC-Programming: "+GameManager.Instance.sub[1].usedCard.ToString()
-        +"/5\nBasic 2D: "+GameManager.Instance.sub[2].usedCard.ToString()
-        +"/5\nBasic 3D: "+GameManager.Instance.sub[3].usedCard.ToString()+"/5";
+        happinessText.text = GameManager.happiness.ToString();
+        tirednessText.text = GameManager.tiredness.ToString();
+        mathText.text = "math: " + GameManager.Instance.sub[0].usedCard.ToString()+"/5";
+        programingText.text = "C-Programing: " +GameManager.Instance.sub[1].usedCard.ToString()+"/5";
+        b2dText.text = "Basic 2D: "+GameManager.Instance.sub[2].usedCard.ToString()+"/5";
+        b3dText.text = "Basic 3D: "+GameManager.Instance.sub[3].usedCard.ToString()+"/5";
     }
 }

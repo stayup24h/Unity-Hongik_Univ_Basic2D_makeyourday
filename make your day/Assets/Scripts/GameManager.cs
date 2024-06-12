@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
@@ -26,6 +27,7 @@ public class GameManager : Singleton<GameManager>
         //변수 초기화
         week = 0;
     }
+    
     public void GameStart() //게임 초기화 함수
     {
         CardManager = GameObject.Find("Card Manager");
@@ -81,6 +83,18 @@ public class GameManager : Singleton<GameManager>
                 turn[15] = 4;
                 break;
         }
+    }
+
+    public void UseCard(int _cardN)
+    {
+        StartCoroutine(newCard(_cardN));
+    }
+
+    IEnumerator newCard(int _cardN)
+    {
+        yield return new WaitForSeconds(0);
+        card[_cardN] = Random.Range(1, 15);
+        CardManager.GetComponent<CardManager>().showCard(_cardN, card[_cardN]);
     }
 
     public void WeekEnd() // 한주 과제 달성 경과 확인

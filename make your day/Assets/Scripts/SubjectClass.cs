@@ -18,7 +18,14 @@ public class Subject
 
     public void UseCard() // 카드 사용
     {
-        usedCard += 1;
+        if (usedCard < 5)
+        {
+            usedCard += 1;
+        }
+        else
+        {
+            usedCard = 5;
+        }
     }
 
     public void Check() // 과제 다했는지 검사
